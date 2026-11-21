@@ -1,0 +1,15 @@
+# One small file per fan. Copy this, rename it (e.g. bedroom-fan.yaml) and edit.
+# All the real config lives in packages/ergo-fan.yaml.
+
+substitutions:
+  name: example-fan                     # hostname: lowercase, hyphens only
+  friendly_name: Example Fan            # shown in Home Assistant
+  static_ip: 192.168.1.50               # pick a free address on your LAN
+  ap_ssid: "Example Fan Fallback"       # fallback hotspot name (max 32 chars)
+  api_key: !secret example_fan_api_key  # one key per device in secrets.yaml
+  # Uncomment if your network isn't 192.168.1.0/24:
+  # gateway: 192.168.0.1
+  # subnet: 255.255.255.0
+
+packages:
+  ergo_fan: !include packages/ergo-fan.yaml
